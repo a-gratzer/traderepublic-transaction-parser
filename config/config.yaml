@@ -1,0 +1,20 @@
+logger:
+  debug: false
+  logLevel: DEBUG
+  output:
+    - stdout
+    - ./examples/examples.log
+
+facts:
+    user: Andreas Gratzer
+    currency:
+      symbol: €
+      separator:
+        thousand: ,
+        decimal: .
+
+
+
+
+
+

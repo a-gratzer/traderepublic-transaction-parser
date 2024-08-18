@@ -2,17 +2,25 @@ package domain
 
 import "time"
 
-type MonthlyTransaction struct {
-	Year         int
-	Month        int
-	Transactions []Transaction
+var MonthMap = map[string]time.Month{
+	"January":   time.January,
+	"February":  time.February,
+	"March":     time.March,
+	"April":     time.April,
+	"May":       time.May,
+	"June":      time.June,
+	"July":      time.July,
+	"August":    time.August,
+	"September": time.September,
+	"October":   time.October,
+	"November":  time.November,
+	"December":  time.December,
 }
 
-func NewMonthlyTransaction(date time.Time) *MonthlyTransaction {
-	return &MonthlyTransaction{
-		Year:  date.Year(),
-		Month: int(date.Month()),
-	}
+type MonthlyTransaction struct {
+	Year         int
+	Month        time.Month
+	Transactions []Transaction
 }
 
 type Transaction struct {

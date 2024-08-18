@@ -1,11 +1,7 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"github.com/a-gratzer/traderepublic-transaction-parser/internal/domain"
-	"os"
-	"time"
+	parser2 "github.com/a-gratzer/traderepublic-transaction-parser/internal/parser"
 )
 
 const (
@@ -14,36 +10,8 @@ const (
 
 func main() {
 
-	// Open the file
-	file := MustOpenFile(TEST_FILE)
-	defer file.Close()
+	parser := parser2.NewTradeRepublicTransactionParser()
+	transactions, _ := parser.MustParse(TEST_FILE)
+	print(transactions)
 
-	monthly := domain.NewMonthlyTransaction(time.Now())
-
-	// Create a scanner
-	scanner := bufio.NewScanner(file)
-
-	// Read and print lines
-	for scanner.Scan() {
-
-		line := scanner.Text()
-
-		fmt.Println(line)
-
-	}
-
-	// Check for errors
-	fmt.Println("#####################")
-	fmt.Println("Errors:")
-	if err := scanner.Err(); err != nil {
-		fmt.Println(err)
-	}
-}
-
-func MustOpenFile(filePath string) *os.File {
-	file, err := os.Open(filePath)
-	if err != nil {
-		panic(err)
-	}
-	return file
 }

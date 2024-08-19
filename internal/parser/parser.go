@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"github.com/a-gratzer/traderepublic-transaction-parser/internal/domain"
 	"os"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -21,26 +22,39 @@ func (p *TradeRepublicTransactionParser) MustParse(filePath string) ([]domain.Mo
 	file := p.mustOpenFile(filePath)
 	defer file.Close()
 
-	transactions := make([]domain.MonthlyTransaction, 0)
+	monthly := make([]domain.MonthlyTransaction, 0)
+	var currentMonth *domain.MonthlyTransaction = nil
+	var currentTransaction *domain.Transaction = domain.NewTransaction()
 
-	var currentTransaction *domain.MonthlyTransaction = nil
-	// Create a scanner
 	scanner := bufio.NewScanner(file)
 
-	// Read and print lines
 	for scanner.Scan() {
 
 		line := scanner.Text()
 
+		if line == "" {
+			continue
+		}
+
 		if p.isYearMonthToken(line) {
-			currentTransaction = p.mustGetMonthlyTransaction(line)
-			transactions = append(transactions, *currentTransaction)
+			if currentMonth == nil {
+				currentMonth = p.mustGetMonthlyTransaction(line)
+			} else {
+				monthly = append(monthly, *currentMonth)
+				currentMonth = p.mustGetMonthlyTransaction(line)
+			}
+
 		} else {
-			currentTransaction.Transactions = append(currentTransaction.Transactions)
+			currentTransaction.Raw = append(currentTransaction.Raw, line)
+			if p.isPriceToken(line) {
+				p.mustParseTransaction(currentMonth.Year, currentMonth.Month, currentTransaction)
+				currentMonth.Transactions = append(currentMonth.Transactions, *currentTransaction)
+				currentTransaction = domain.NewTransaction()
+			}
 		}
 	}
 
-	return transactions, nil
+	return monthly, nil
 }
 
 func (p *TradeRepublicTransactionParser) mustOpenFile(filePath string) *os.File {
@@ -66,6 +80,20 @@ func (p *TradeRepublicTransactionParser) isYearMonthToken(line string) bool {
 	return false
 }
 
+func (p *TradeRepublicTransactionParser) isDayAndTypeToken(line string) bool {
+	DAY_TYPE_PATTERN := `^(\d{2}\/\d{2})(.*?)$`
+
+	re := regexp.MustCompile(DAY_TYPE_PATTERN)
+
+	return re.MatchString(line)
+}
+
+func (p *TradeRepublicTransactionParser) isPriceToken(line string) bool {
+	AMOUNT_PATTERN := `^(\+|-)?(€)([0-9.,]+)$`
+	re := regexp.MustCompile(AMOUNT_PATTERN)
+	return re.MatchString(line)
+}
+
 func (p *TradeRepublicTransactionParser) mustGetMonthlyTransaction(line string) *domain.MonthlyTransaction {
 
 	date := time.Date(0, 0, 0, 0, 0, 0, 0, time.UTC)
@@ -84,7 +112,7 @@ func (p *TradeRepublicTransactionParser) mustGetMonthlyTransaction(line string) 
 		case 2:
 			month, _ := domain.MonthMap[parts[0]]
 			year, _ := strconv.Atoi(parts[1])
-			date = time.Date(year, month, 0, 0, 0, 0, 1, time.UTC)
+			date = time.Date(year, month, 0, 0, 0, 0, 0, time.UTC)
 		}
 
 	}
@@ -93,4 +121,9 @@ func (p *TradeRepublicTransactionParser) mustGetMonthlyTransaction(line string) 
 		Year:  date.Year(),
 		Month: date.Month(),
 	}
+}
+
+func (p *TradeRepublicTransactionParser) mustParseTransaction(year int, month time.Month, transaction *domain.Transaction) {
+	transaction.Tag = transaction.Raw[0]
+
 }

@@ -32,6 +32,10 @@ type Transaction struct {
 	Raw    []string
 }
 
+func NewTransaction() *Transaction {
+	return &Transaction{}
+}
+
 type Amount struct {
 	Currency string
 	Value    float64

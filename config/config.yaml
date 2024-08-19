@@ -1,12 +1,12 @@
 logger:
-  debug: false
+  debug: true
   logLevel: DEBUG
   output:
     - stdout
     - ./examples/examples.log
 
 facts:
-    user: Andreas Gratzer
+    user: Hans Huber
     currency:
       symbol: €
       separator:

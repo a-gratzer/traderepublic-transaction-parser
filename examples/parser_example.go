@@ -1,7 +1,10 @@
 package main
 
 import (
-	parser2 "github.com/a-gratzer/traderepublic-transaction-parser/internal/parser"
+	"github.com/a-gratzer/traderepublic-transaction-parser/internal/config"
+	"github.com/a-gratzer/traderepublic-transaction-parser/internal/logger"
+	"github.com/a-gratzer/traderepublic-transaction-parser/internal/parser"
+	"github.com/spf13/viper"
 )
 
 const (
@@ -10,8 +13,16 @@ const (
 
 func main() {
 
-	parser := parser2.NewTradeRepublicTransactionParser()
-	transactions, _ := parser.MustParse(TEST_FILE)
-	print(transactions)
+	config.InitDefaultViperConfig("./config/config.yaml")
+	user := viper.GetViper().GetString("facts.user")
+	print(user)
+	logger := logger.GetZapLogger(false)
+
+	parser.NewTradeRepublicTransactionParser(logger)
+	//if transactions, err := tradeRepParser.MustParse(TEST_FILE); err != nil {
+	//	for _, monthlyTransactions := range transactions {
+	//		print(string(monthlyTransactions))
+	//	}
+	//}
 
 }

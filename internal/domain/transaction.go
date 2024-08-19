@@ -38,5 +38,6 @@ func NewTransaction() *Transaction {
 
 type Amount struct {
 	Currency string
-	Value    float64
+	Prefix   string
+	AbsValue float64
 }

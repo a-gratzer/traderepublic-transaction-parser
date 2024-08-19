@@ -10,11 +10,21 @@ import (
 	"time"
 )
 
+const (
+	AMOUNT_PATTERN   = `^(\+|-)?(€)([0-9.,]+)$`
+	DAY_TYPE_PATTERN = `^(\d{2}\/\d{2})(.*?)$`
+)
+
 type TradeRepublicTransactionParser struct {
+	amountXp  *regexp.Regexp
+	dayTypeXp *regexp.Regexp
 }
 
 func NewTradeRepublicTransactionParser() *TradeRepublicTransactionParser {
-	return &TradeRepublicTransactionParser{}
+	return &TradeRepublicTransactionParser{
+		amountXp:  regexp.MustCompile(AMOUNT_PATTERN),
+		dayTypeXp: regexp.MustCompile(DAY_TYPE_PATTERN),
+	}
 }
 
 func (p *TradeRepublicTransactionParser) MustParse(filePath string) ([]domain.MonthlyTransaction, error) {
@@ -47,7 +57,7 @@ func (p *TradeRepublicTransactionParser) MustParse(filePath string) ([]domain.Mo
 		} else {
 			currentTransaction.Raw = append(currentTransaction.Raw, line)
 			if p.isPriceToken(line) {
-				p.mustParseTransaction(currentMonth.Year, currentMonth.Month, currentTransaction)
+				p.mustParseTransaction(currentMonth.Year, currentTransaction)
 				currentMonth.Transactions = append(currentMonth.Transactions, *currentTransaction)
 				currentTransaction = domain.NewTransaction()
 			}
@@ -81,17 +91,11 @@ func (p *TradeRepublicTransactionParser) isYearMonthToken(line string) bool {
 }
 
 func (p *TradeRepublicTransactionParser) isDayAndTypeToken(line string) bool {
-	DAY_TYPE_PATTERN := `^(\d{2}\/\d{2})(.*?)$`
-
-	re := regexp.MustCompile(DAY_TYPE_PATTERN)
-
-	return re.MatchString(line)
+	return p.dayTypeXp.MatchString(line)
 }
 
 func (p *TradeRepublicTransactionParser) isPriceToken(line string) bool {
-	AMOUNT_PATTERN := `^(\+|-)?(€)([0-9.,]+)$`
-	re := regexp.MustCompile(AMOUNT_PATTERN)
-	return re.MatchString(line)
+	return p.amountXp.MatchString(line)
 }
 
 func (p *TradeRepublicTransactionParser) mustGetMonthlyTransaction(line string) *domain.MonthlyTransaction {
@@ -123,7 +127,47 @@ func (p *TradeRepublicTransactionParser) mustGetMonthlyTransaction(line string) 
 	}
 }
 
-func (p *TradeRepublicTransactionParser) mustParseTransaction(year int, month time.Month, transaction *domain.Transaction) {
+func (p *TradeRepublicTransactionParser) mustParseTransaction(year int, transaction *domain.Transaction) {
+
+	if len(transaction.Raw) != 4 {
+		panic("Unable to parse transaction. Expected 4 token but got " + string(len(transaction.Raw)))
+	}
+
+	// #############################
+	// Tag
 	transaction.Tag = transaction.Raw[0]
+
+	// #############################
+	// Day/Type
+	matchDayType := p.dayTypeXp.FindStringSubmatch(transaction.Raw[2])
+	if len(matchDayType) != 3 {
+		panic("Unable to parse day/type token " + transaction.Raw[2])
+	}
+
+	dayMonth := strings.Split(matchDayType[1], "/")
+	day, _ := strconv.Atoi(dayMonth[0])
+	month, _ := strconv.Atoi(dayMonth[1])
+	transaction.Date = transaction.Date.AddDate(year, month, day)
+	transaction.Type = strings.Replace(matchDayType[2], " - ", "", 1)
+
+	// #############################
+	// Amount
+	matchAmount := p.amountXp.FindStringSubmatch(transaction.Raw[3])
+	if len(matchAmount) != 4 {
+		panic("Unable to parse amount token " + transaction.Raw[3])
+	}
+	transaction.Amount.Currency = matchAmount[2]
+
+	val, err := strconv.ParseFloat(strings.Replace(matchAmount[3], ",", "", 5), 64)
+	if err != nil {
+		panic("Unable to parse amount " + string(matchAmount[3]))
+	}
+
+	transaction.Amount.Prefix = matchAmount[1]
+	if matchAmount[1] == "" {
+		transaction.Amount.Prefix = "-"
+	}
+
+	transaction.Amount.AbsValue = val
 
 }

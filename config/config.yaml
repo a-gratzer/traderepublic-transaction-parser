@@ -4,9 +4,9 @@ logger:
   output:
     - stdout
     - ./examples/examples.log
-
 parser:
   inputFile: examples/transactions-traderepublic.txt
+  outputFile: examples/transactions-traderepublic.csv
   transaction:
     amount:
       symbol: "€"

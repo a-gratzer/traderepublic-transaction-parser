@@ -3,6 +3,7 @@ package parser
 import (
 	"bufio"
 	"github.com/a-gratzer/traderepublic-transaction-parser/internal/domain"
+	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"os"
 	"regexp"
@@ -12,7 +13,7 @@ import (
 )
 
 const (
-	AMOUNT_PATTERN   = `^(\+|-)?(€)([0-9.,]+)$`
+	AMOUNT_PATTERN   = `^(\+|-)?({SYMBOL})([0-9{THOUSAND}{DECIMAL}]+)$`
 	DAY_TYPE_PATTERN = `^(\d{2}\/\d{2})(.*?)$`
 )
 
@@ -23,11 +24,23 @@ type TradeRepublicTransactionParser struct {
 }
 
 func NewTradeRepublicTransactionParser(logger *zap.Logger) *TradeRepublicTransactionParser {
-	return &TradeRepublicTransactionParser{
-		logger:    logger,
-		amountXp:  regexp.MustCompile(AMOUNT_PATTERN),
-		dayTypeXp: regexp.MustCompile(DAY_TYPE_PATTERN),
+	parser := &TradeRepublicTransactionParser{
+		logger: logger,
 	}
+	parser.applyConfig()
+	return parser
+}
+
+func (p *TradeRepublicTransactionParser) applyConfig() {
+	viper.SetDefault(CONFIG_PARSER_TRANSACTION_AMOUNT_SYMBOL, "€")
+	viper.SetDefault(CONFIG_PARSER_TRANSACTION_AMOUNT_SEPARATOR_THOUSAND, ",")
+	viper.SetDefault(CONFIG_PARSER_TRANSACTION_AMOUNT_SEPARATOR_DECIMAL, ".")
+	amountPattern := strings.Replace(AMOUNT_PATTERN, "{SYMBOL}", viper.GetViper().GetString(CONFIG_PARSER_TRANSACTION_AMOUNT_SYMBOL), 1)
+	amountPattern = strings.Replace(amountPattern, "{THOUSAND}", viper.GetViper().GetString(CONFIG_PARSER_TRANSACTION_AMOUNT_SEPARATOR_THOUSAND), 1)
+	amountPattern = strings.Replace(amountPattern, "{DECIMAL}", viper.GetViper().GetString(CONFIG_PARSER_TRANSACTION_AMOUNT_SEPARATOR_DECIMAL), 1)
+
+	p.amountXp = regexp.MustCompile(amountPattern)
+	p.dayTypeXp = regexp.MustCompile(DAY_TYPE_PATTERN)
 }
 
 func (p *TradeRepublicTransactionParser) MustParse(filePath string) ([]domain.MonthlyTransaction, error) {

@@ -5,14 +5,14 @@ logger:
     - stdout
     - ./examples/examples.log
 
-facts:
-    user: Hans Huber
-    currency:
-      symbol: €
+parser:
+  inputFile: examples/transactions-traderepublic.txt
+  transaction:
+    amount:
+      symbol: "€"
       separator:
-        thousand: ,
-        decimal: .
-
+        thousand: ","
+        decimal: "."
 
 
 

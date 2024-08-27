@@ -119,7 +119,7 @@ func (p *TradeRepublicTransactionParser) mustGetMonthlyTransaction(line string) 
 	date := time.Date(0, 0, 0, 0, 0, 0, 0, time.UTC)
 
 	if strings.Contains(line, "This month") {
-		date = date.AddDate(time.Now().Year(), int(time.Now().Month()), 0)
+		date = time.Now().UTC()
 	} else {
 		parts := strings.Split(line, " ")
 		switch len(parts) {
@@ -127,11 +127,11 @@ func (p *TradeRepublicTransactionParser) mustGetMonthlyTransaction(line string) 
 			p.logger.Error("Unable to parse Month/Year token")
 		case 1:
 			month, _ := domain.MonthMap[parts[0]]
-			date = time.Date(time.Now().Year(), month, 0, 0, 0, 0, 0, time.UTC)
+			date = time.Date(time.Now().Year(), month, 1, 0, 0, 0, 0, time.UTC)
 		case 2:
 			month, _ := domain.MonthMap[parts[0]]
 			year, _ := strconv.Atoi(parts[1])
-			date = time.Date(year, month, 0, 0, 0, 0, 0, time.UTC)
+			date = time.Date(year, month, 1, 0, 0, 0, 0, time.UTC)
 		}
 	}
 
@@ -167,7 +167,7 @@ func (p *TradeRepublicTransactionParser) mustParseTransaction(year int, transact
 	dayMonth := strings.Split(matchDayType[1], "/")
 	day, _ := strconv.Atoi(dayMonth[0])
 	month, _ := strconv.Atoi(dayMonth[1])
-	transaction.Date = transaction.Date.AddDate(year, month, day)
+	transaction.Date = time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
 	transaction.Type = strings.Replace(matchDayType[2], " - ", "", 1)
 
 	// #############################

@@ -1,0 +1,235 @@
+Date,Tag,Type,Currency,Amount_Prefix,Amount_Absolute
+2024-08-15,Oracle,Limit Buy,€,-,1.4
+2024-08-15,Stock 26,Cash dividend,€,+,1.88
+2024-08-15,Stock 17,Cash dividend,€,+,1.51
+2024-08-15,Stock 21,Cash dividend,€,+,1.98
+2024-08-06,Stock 25,Limit Buy,€,-,1.72
+2024-08-06,Intel,Buy Order,€,-,1.99
+2024-08-06,Stock 25,Limit Buy,€,-,239.88
+2024-08-06,Intel,Limit Buy,€,-,1.32
+2024-08-05,Stock 6,Stop Sell,€,+,598.75
+2024-08-05,Stock 6,Stop Sell,€,+,598.75
+2024-08-05,Stock 10,Stop Sell,€,+,1.24
+2024-08-02,RWE,Stop Sell,€,+,952.1
+2024-08-02,Intel,Buy Order,€,-,212.25
+2024-08-01,Intel,Limit Buy,€,-,1
+2024-08-01,Stock 6,Cash dividend,€,+,18.08
+2024-08-01,Interest,3.75% p.a.,€,+,85.86
+2024-07-31,Stock 22,Limit Buy,€,-,1.75
+2024-07-31,Intel,Limit Buy,€,-,283.5
+2024-07-26,Intel,Limit Buy,€,-,1.75
+2024-07-26,Stock 25,Limit Buy,€,-,1.76
+2024-07-25,Stock 25,Limit Buy,€,-,401.59
+2024-07-25,Stock 15,Stop Sell,€,+,1
+2024-07-25,Oracle,Cash dividend,€,+,1.14
+2024-07-18,Stock 23,Buy Order,€,-,1.2
+2024-07-17,Stock 12,Stop Sell,€,+,1111.11
+2024-07-12,Stock 2 (STOCK),Cash dividend,€,+,11.11
+2024-07-12,Stock 2 (STOCK),Cash dividend,€,+,11.11
+2024-07-12,Stock 23,Cash dividend,€,+,1.73
+2024-07-04,Stock 25,Limit Buy,€,-,111.11
+2024-07-03,Stock 6,Limit Buy,€,-,276.1
+2024-07-01,Interest,3.75% p.a.,€,+,11.11
+2024-06-28,Kraft-Heinz,Cash dividend,€,+,8.88
+2024-06-27,Stock 12,Cash dividend,€,+,1.11
+2024-06-26,Stock 25,Cash dividend,€,+,14.09
+2024-06-24,Oracle,Stop Sell,€,+,388.76
+2024-06-24,Stock 23,Stop Sell,€,+,959
+2024-06-20,Stock 23,Stop Sell,€,+,1001
+2024-06-18,Stock 15,Cash dividend,€,+,1.41
+2024-06-13,Kraft-Heinz,Stop Sell,€,+,839
+2024-06-13,Stock 22,Cash dividend,€,+,0.6
+2024-06-07,Stock 16,Sell Order,€,+,342.2
+2024-06-07,Stock 16,Sell Order,€,+,343.4
+2024-06-04,Hans Huber,,€,+,2000
+2024-06-04,Johnson & Johnson,Dividend,€,+,2.91
+2024-06-03,Intel,Limit Buy,€,-,279.45
+2024-06-03,Meituan (B),Sell Order,€,+,9.08
+2024-06-03,Intel,Dividend,€,+,6.87
+2024-06-01,Interest,4.00% p.a.,€,+,72.97
+2024-05-31,Stock 11,Dividend,€,+,3.21
+2024-05-16,Intel,Limit Buy,€,-,295.05
+2024-05-16,Stock 2 (STOCK),Limit Buy,€,-,397
+2024-05-16,Stock 17,Dividend,€,+,2.56
+2024-05-15,Stock 26,Dividend,€,+,3.96
+2024-05-15,Stock 21,Dividend,€,+,6.1
+2024-05-10,Long 17.8505 €,Sell Order,€,+,83.5
+2024-05-10,Long 17.8505 €,Buy Order,€,-,87
+2024-05-08,Intel,Limit Buy,€,-,278
+2024-05-08,RWE,Dividend,€,+,22.09
+2024-05-06,Stock 25,Limit Buy,€,-,717.07
+2024-05-01,Interest,4.00% p.a.,€,+,80.64
+2024-04-30,Intel,Limit Buy,€,-,288.95
+2024-04-30,Stock 25,Limit Buy,€,-,473.98
+2024-04-30,Oracle,Limit Buy,€,-,320.98
+2024-04-25,Intel,Buy Order,€,-,301.05
+2024-04-24,Oracle,Dividend,€,+,3.19
+2024-04-22,Intel,Buy Order,€,-,322.55
+2024-04-18,Intel,Buy Order,€,-,330.25
+2024-04-16,Intel,Limit Buy,€,-,412.6
+2024-04-13,Stock 23,Dividend,€,+,4.85
+2024-04-04,RWE,Limit Buy,€,-,313.3
+2024-04-01,Interest,4.00% p.a.,€,+,86.46
+2024-03-29,Kraft-Heinz,Dividend,€,+,8.78
+2024-03-27,Stock 25,Distribution,€,+,10.97
+2024-03-26,Stock 12,Dividend,€,+,1.17
+2024-03-20,Intel,Limit Buy,€,-,385.85
+2024-03-15,Stock 22,Dividend,€,+,0.58
+2024-03-08,RWE,Limit Buy,€,-,321.2
+2024-03-06,Johnson & Johnson,Dividend,€,+,2.8
+2024-03-04,Stock 9,Sell Order,€,+,1185.5
+2024-03-01,Interest,4.00% p.a.,€,+,79.06
+2024-03-01,Intel,Dividend,€,+,0.78
+2024-02-15,RWE,Limit Buy,€,-,320.6
+2024-02-15,Stock 26,Dividend,€,+,3.7
+2024-02-15,Stock 17,Dividend,€,+,2.45
+2024-02-15,Stock 21,Dividend,€,+,6.1
+2024-02-14,Kraft-Heinz,Limit Buy,€,-,96.94
+2024-02-01,Interest,4.00% p.a.,€,+,93.53
+2024-01-25,Oracle,Dividend,€,+,3.11
+2024-01-22,Stock 2 (STOCK),Dividend,€,+,22.49
+2024-01-13,Stock 23,Dividend,€,+,4.19
+2024-01-05,Kraft-Heinz,Limit Buy,€,-,346.9
+2024-01-05,Stock 26,Limit Buy,€,-,269.48
+2024-01-02,Stock 25,Distribution,€,+,10.52
+2023-12-29,Interest,4.00% p.a.,€,+,74.68
+2023-12-29,Kraft-Heinz,Limit Buy,€,-,502.15
+2023-12-22,Hans Huber,,€,+,2000
+2023-12-15,Oracle,Limit Buy,€,-,277.54
+2023-12-14,Oracle,Limit Buy,€,-,182.98
+2023-12-14,Stock 22,Dividend,€,+,0.6
+2023-12-13,Oracle,Limit Buy,€,-,282.52
+2023-12-08,Hans Huber,,€,+,2000
+2023-12-05,Johnson & Johnson,Dividend,€,+,2.78
+2023-12-01,Interest,4.00% p.a.,€,+,71.66
+2023-12-01,Intel,Dividend,€,+,0.77
+2023-11-20,Hans Huber,,€,+,1033
+2023-11-16,Stock 17,Dividend,€,+,2.47
+2023-11-15,Stock 26,Dividend,€,+,2.24
+2023-11-15,Stock 21,Dividend,€,+,5.87
+2023-11-03,Hans Huber,,€,+,2500
+2023-11-01,Stock 25,Buy Order,€,-,750.96
+2023-11-01,Interest,4.00% p.a.,€,+,11.11
+2023-10-31,Stock 14,Limit Buy,€,-,11.11
+2023-10-30,Hans Huber,,€,+,5000
+2023-10-27,Stock 25,Limit Buy,€,-,111.11
+2023-10-26,Oracle,Dividend,€,+,0.11
+2023-10-23,Stock 1 (STOCK),Limit Buy,€,-,111
+2023-10-23,Stock 25,Limit Buy,€,-,111.11
+2023-10-19,Stock 14,Limit Buy,€,-,108.61
+2023-10-14,Stock 23,Dividend,€,+,4.18
+2023-10-04,Hans Huber,,€,+,1000
+2023-10-02,Interest,2.00% p.a.,€,+,11.11
+2023-09-28,Stock 17,Limit Buy,€,-,111.11
+2023-09-28,Stock 25,Distribution,€,+,1.11
+2023-09-22,Stock 25,Limit Buy,€,-,111.11
+2023-09-21,Stock 1 (STOCK),Limit Buy,€,-,11.11
+2023-09-21,Stock 25,Limit Buy,€,-,111.11
+2023-09-19,Stock 18,Limit Buy,€,-,130.06
+2023-09-19,Stock 1 (STOCK),Limit Buy,€,-,200.75
+2023-09-19,Stock 25,Limit Buy,€,-,124.69
+2023-09-19,Stock 1 (STOCK),Limit Buy,€,-,178.6
+2023-09-19,Stock 25,Limit Buy,€,-,207.75
+2023-09-19,Stock 26,Limit Buy,€,-,434.2
+2023-09-19,Johnson & Johnson,Limit Buy,€,-,457.6
+2023-09-15,Oracle,Limit Buy,€,-,214.96
+2023-09-15,Stock 22,Dividend,€,+,0.54
+2023-09-12,Stock 25,Limit Buy,€,-,209.46
+2023-09-07,Stock 25,Limit Buy,€,-,250.27
+2023-09-07,Stock 8,Sell Order,€,+,273.95
+2023-09-07,Stock 25,Limit Buy,€,-,208.61
+2023-09-04,Stock 25,Limit Buy,€,-,251.36
+2023-09-04,Stock 8,Sell Order,€,+,280.25
+2023-09-04,Stock 25,Limit Buy,€,-,209.63
+2023-09-01,Interest,2.00% p.a.,€,+,26.11
+2023-09-01,Intel,Dividend,€,+,0.5
+2023-08-29,Stock 4,Limit Buy,€,-,52.77
+2023-08-18,Stock 2 (STOCK),Limit Buy,€,-,245.05
+2023-08-18,Stock 2 (STOCK),Limit Buy,€,-,163.7
+2023-08-18,Stock 17,Limit Buy,€,-,160.66
+2023-08-17,Stock 17,Dividend,€,+,1.68
+2023-08-15,Stock 21,Dividend,€,+,5.71
+2023-08-14,Intel,Limit Buy,€,-,96.94
+2023-08-03,Stock 6,Dividend,€,+,6.61
+2023-08-01,Interest,2.00% p.a.,€,+,27.19
+2023-07-28,Stock 18,Limit Buy,€,-,237.68
+2023-07-21,Stock 2 (STOCK),Limit Buy,€,-,420.5
+2023-07-18,Stock 23,Dividend,€,+,3.7
+2023-07-03,Hans Huber,,€,+,2000
+2023-07-01,Interest,2.00% p.a.,€,+,22.91
+2023-06-15,Stock 3,Limit Sell,€,+,701
+2023-06-10,Stock 22,Dividend,€,+,0.54
+2023-06-03,Stock 11,Dividend,€,+,2.29
+2023-06-01,Intel,Dividend,€,+,0.51
+2023-06-01,Interest,2.00% p.a.,€,+,23.48
+2023-05-19,Stock 2 (STOCK),Limit Buy,€,-,398
+2023-05-19,Stock 1 (STOCK),Limit Buy,€,-,104.88
+2023-05-18,Stock 17,Dividend,€,+,1.69
+2023-05-13,Stock 21,Dividend,€,+,5.75
+2023-05-01,Interest,2.00% p.a.,€,+,23.02
+2023-04-20,Stock 23,Dividend,€,+,3.88
+2023-04-01,Interest,2.00% p.a.,€,+,23.16
+2023-03-10,Stock 15,Limit Buy,€,-,170.94
+2023-03-09,Intel,Limit Buy,€,-,127.6
+2023-03-09,Stock 22,Dividend,€,+,0.55
+2023-03-07,Hans Huber,,€,+,2200
+2023-03-01,Interest,2.00% p.a.,€,+,19.17
+2023-02-28,Stock 15,Limit Buy,€,-,257.71
+2023-02-17,Stock 17,Dividend,€,+,1.63
+2023-02-15,Stock 23,Limit Buy,€,-,172.6
+2023-02-14,Stock 15,Limit Buy,€,-,173.64
+2023-02-14,Stock 1 (STOCK),Limit Buy,€,-,95.1
+2023-02-01,Interest,2.00% p.a.,€,+,0.79
+2023-01-31,Hans Huber,,€,+,12000
+2023-01-30,Stock 23,Limit Buy,€,-,428.5
+2023-01-30,Stock 3,Limit Sell,€,+,315.2
+2023-01-30,Stock 23,Limit Buy,€,-,429
+2023-01-27,Hans Huber,,€,+,1000
+2023-01-26,Stock 22,Limit Buy,€,-,224.65
+2023-01-26,Stock 21,Limit Buy,€,-,680.8
+2023-01-26,Hans Huber,,€,+,1000
+2023-01-17,Stock 20,Limit Buy,€,-,150.22
+2023-01-17,Stock 19,Limit Buy,€,-,145.65
+2023-01-17,Cash In,,€,+,300
+2023-01-10,Stock 14,Limit Buy,€,-,42.2
+2023-01-10,Stock 18,Limit Buy,€,-,84.68
+2023-01-10,Stock 17,Limit Buy,€,-,484.04
+2023-01-10,Cash In,,€,+,600
+2022-12-19,Stock 17,Limit Buy,€,-,637
+2022-12-19,Cash In,,€,+,630
+2022-11-25,Stock 16,Limit Buy,€,-,598.6
+2022-11-25,Cash In,,€,+,500
+2022-11-23,Stock 1 (STOCK),Limit Buy,€,-,103.8
+2022-11-23,Cash In,,€,+,200
+2022-11-15,Stock 15,Limit Buy,€,-,188.3
+2022-11-15,Stock 14,Buy Order,€,-,288.5
+2022-11-15,Cash In,,€,+,500
+2022-08-03,Stock 6,Dividend,€,+,0.69
+2022-06-06,Stock 11,Dividend,€,+,1.53
+2022-05-10,Stock 10,Limit Buy,€,-,21.04
+2022-04-12,Stock 13,Sell Order,€,+,8.61
+2021-08-17,Stock 1 (STOCK),Buy Order,€,-,65.52
+2021-08-07,Stock 6,Dividend,€,+,0.87
+2021-08-02,Stock 11,Limit Buy,€,-,417.72
+2021-06-09,Stock 12,Limit Buy,€,-,822.85
+2021-05-06,Stock 10,Limit Buy,€,-,700.84
+2021-04-20,Hans Huber,,€,+,2000
+2021-03-05,Stock 1 (STOCK),Limit Buy,€,-,118.2
+2021-02-24,Stock 6,Limit Buy,€,-,236
+2021-02-24,Stock 9,Limit Buy,€,-,641
+2021-02-23,Stock 1 (STOCK),Limit Buy,€,-,593.5
+2021-02-16,Hans Huber,,€,+,1500
+2021-01-25,Stock 8,Limit Buy,€,-,1077.4
+2021-01-25,Stock 7,Stop Sell,€,+,1159
+2020-12-29,Stock 1 (STOCK),Limit Buy,€,-,533.5
+2020-12-28,Stock 7,Limit Buy,€,-,929
+2020-12-28,Stock 2 (STOCK),Limit Buy,€,-,542.2
+2020-12-28,Stock 2 (STOCK),Limit Buy,€,-,178.8
+2020-12-22,Hans Huber,,€,+,2000
+2020-12-15,Stock 1 (STOCK),Limit Buy,€,-,351
+2020-12-15,Hans Huber,,€,+,500
+2020-12-08,Stock 6,Limit Buy,€,-,779.6
+2020-12-04,Stock 2 (STOCK),Limit Buy,€,-,441
+2020-12-04,Stock 1 (STOCK),Limit Buy,€,-,352
+2020-12-02,Stock 1 (STOCK),Buy Order,€,-,578.5
+2020-12-01,Hans Huber,,€,+,2000

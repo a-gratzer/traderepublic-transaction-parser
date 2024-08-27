@@ -1,6 +1,28 @@
 # traderepublic-transaction-parser
 > Export Traderepublic transactions to a target format
 
+## What is it for?
+Convert transactions copied from your traderepublic account into csv format for analysis.
+
+Example input:
+``` text
+This month
+Oracle
+Oracle
+15/08 - Limit Buy
+
+€1.40
+...
+```
+Generated output
+``` text
+Date,Tag,Type,Currency,Amount_Prefix,Amount_Absolute
+2024-08-15,Oracle,Limit Buy,€,-,1.4
+...
+...
+```
+
+
 ## How-To
 
 ### Browse to "Profile" page and select "Transaction" tab

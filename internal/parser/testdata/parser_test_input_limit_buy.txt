@@ -1,0 +1,17 @@
+This month
+stock 1
+stock 1
+01/01 - Limit Buy
+€1000
+
+stock 2
+stock 2
+02/01 - Limit Buy
+
+€1.99
+
+stock 3
+stock 3
+03/01 - Limit Buy
+
+€10,000.00

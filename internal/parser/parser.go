@@ -72,8 +72,10 @@ func (p *TradeRepublicTransactionParser) MustParse(filePath string) ([]domain.Mo
 		} else {
 			currentTransaction.Raw = append(currentTransaction.Raw, line)
 			if p.isPriceToken(line) {
+				// last entry from one transaction
 				p.mustParseTransaction(currentMonth.Year, currentTransaction)
-				currentMonth.Transactions = append(currentMonth.Transactions, *currentTransaction)
+				last := &monthly[len(monthly)-1]
+				last.Transactions = append(last.Transactions, *currentTransaction)
 				currentTransaction = domain.NewTransaction()
 			}
 		}

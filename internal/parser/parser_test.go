@@ -51,3 +51,22 @@ func TestMustParse_month_year_tokens(t *testing.T) {
 	assert.Equal(t, time.March, data[2].Month, "3rd month in test-data is March")
 	assert.Equal(t, time.December, data[11].Month, "12th month in test-data is December")
 }
+
+func TestMustParse_limit_buy_tokens(t *testing.T) {
+
+	parser := NewTradeRepublicTransactionParser(logger.GetZapLogger(false))
+	data, err := parser.MustParse("testdata/parser_test_input_limit_buy.txt")
+	assert.NoError(t, err)
+	assert.Equal(t, 1, len(data))
+
+	assert.Equal(t, 3, len(data[0].Transactions), "3 buy orders expected")
+
+	assert.Equal(t, time.January, data[0].Transactions[0].Date.Month(), "01/01 is January")
+	assert.Equal(t, time.January, data[0].Transactions[1].Date.Month(), "02/01 is January")
+	assert.Equal(t, time.January, data[0].Transactions[2].Date.Month(), "03/01 is January")
+
+	assert.Equal(t, 1, data[0].Transactions[0].Date.Day(), "01/01 is 1")
+	assert.Equal(t, 2, data[0].Transactions[1].Date.Day(), "02/01 is 2")
+	assert.Equal(t, 3, data[0].Transactions[2].Date.Day(), "03/01 is 3")
+
+}

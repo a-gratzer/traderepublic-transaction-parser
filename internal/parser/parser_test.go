@@ -69,4 +69,23 @@ func TestMustParse_limit_buy_tokens(t *testing.T) {
 	assert.Equal(t, 2, data[0].Transactions[1].Date.Day(), "02/01 is 2")
 	assert.Equal(t, 3, data[0].Transactions[2].Date.Day(), "03/01 is 3")
 
+	assert.Equal(t, "stock 1", data[0].Transactions[0].Tag)
+	assert.Equal(t, "stock 2", data[0].Transactions[1].Tag)
+	assert.Equal(t, "stock 3", data[0].Transactions[2].Tag)
+
+	assert.Equal(t, "Limit Buy", data[0].Transactions[0].Type)
+	assert.Equal(t, "Limit Buy", data[0].Transactions[1].Type)
+	assert.Equal(t, "Limit Buy", data[0].Transactions[2].Type)
+
+	assert.Equal(t, "€", data[0].Transactions[0].Amount.Currency)
+	assert.Equal(t, "€", data[0].Transactions[1].Amount.Currency)
+	assert.Equal(t, "€", data[0].Transactions[2].Amount.Currency)
+
+	assert.Equal(t, "-", data[0].Transactions[0].Amount.Prefix)
+	assert.Equal(t, "-", data[0].Transactions[1].Amount.Prefix)
+	assert.Equal(t, "-", data[0].Transactions[2].Amount.Prefix)
+
+	assert.Equal(t, float64(1000), data[0].Transactions[0].Amount.AbsValue)
+	assert.Equal(t, float64(1.99), data[0].Transactions[1].Amount.AbsValue)
+	assert.Equal(t, float64(10000), data[0].Transactions[2].Amount.AbsValue)
 }

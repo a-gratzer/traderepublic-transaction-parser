@@ -1,8 +1,5 @@
 # traderepublic-transaction-parser
-> Export Traderepublic transactions to a target format
-
-## What is it for?
-Convert transactions copied from your traderepublic account into csv format for analysis.
+> Convert transactions copied from your traderepublic account into csv format for analysis.
 
 Example input:
 ``` text

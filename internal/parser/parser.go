@@ -66,10 +66,9 @@ func (p *TradeRepublicTransactionParser) MustParse(filePath string) ([]domain.Mo
 			if currentMonth == nil {
 				currentMonth = p.mustGetMonthlyTransaction(line)
 			} else {
-				monthly = append(monthly, *currentMonth)
 				currentMonth = p.mustGetMonthlyTransaction(line)
 			}
-
+			monthly = append(monthly, *currentMonth)
 		} else {
 			currentTransaction.Raw = append(currentTransaction.Raw, line)
 			if p.isPriceToken(line) {

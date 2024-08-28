@@ -12,18 +12,30 @@ import (
 var log *zap.Logger
 
 func init() {
-	config.InitDefaultViperConfig("./config/config.yaml")
+	config.InitDefaultViperConfig(getConfigFilePath())
 	log = logger.GetZapLogger(false)
 }
 
 func main() {
 
 	tradeRepParser := parser.NewTradeRepublicTransactionParser(log)
-	result, err := tradeRepParser.MustParse(viper.GetViper().GetString(parser.CONFIG_PARSER_INPUT_FILE))
+	result, err := tradeRepParser.MustParse(getInputFilePath())
 	if err != nil {
 		log.Error(err.Error())
 	}
-	writer.NewCSVWriter(log, viper.GetViper().GetString(parser.CONFIG_PARSER_OUTPUT_FILE)).MustWrite(result)
+	writer.NewCSVWriter(log, getOutputFilePath()).MustWrite(result)
 	print(result)
 
+}
+
+func getConfigFilePath() string {
+	return "./config/config.yaml"
+}
+
+func getOutputFilePath() string {
+	return viper.GetViper().GetString(parser.CONFIG_PARSER_OUTPUT_FILE)
+}
+
+func getInputFilePath() string {
+	return viper.GetViper().GetString(parser.CONFIG_PARSER_INPUT_FILE)
 }
